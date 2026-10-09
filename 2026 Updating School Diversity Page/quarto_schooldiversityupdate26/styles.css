@@ -1,0 +1,487 @@
+/* =================================================== */
+/* Modern Design System — Vision Zero NYC                */
+/* =================================================== */
+
+:root {
+  --accent-color: #05014a;
+  --accent-color-soft: #1a1670;
+  --accent-glow: rgba(5, 1, 74, 0.08);
+  --positive-color: #e6f5e6;
+  --negative-color: #fee0e2;
+  --ink: #1a1a2e;
+  --ink-soft: #4a4a5e;
+  --ink-muted: #6b7280;
+  --surface: #ffffff;
+  --surface-alt: #f7f8fb;
+  --surface-tint: #eef1f7;
+  --hairline: #e5e7eb;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.12), 0 8px 16px -8px rgba(15, 23, 42, 0.08);
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =================================================== */
+/* Typography                                            */
+/* =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.075rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  color: var(--ink-soft);
+  margin-bottom: 1.1rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  letter-spacing: -0.015em;
+  color: var(--accent-color);
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.85rem;
+  margin-top: 4.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  position: relative;
+  border-bottom: none;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-soft));
+  border-radius: 2px;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+a:hover {
+  text-decoration: none;
+  border-bottom-color: var(--accent-color);
+  color: var(--accent-color-soft);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+  width: 70%;
+  margin: 5rem auto;
+}
+
+/* =================================================== */
+/* Navbar                                                */
+/* =================================================== */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--ink) !important;
+  transition: color var(--transition);
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+/* =================================================== */
+/* Title Banner                                          */
+/* =================================================== */
+
+#title-block-header {
+  margin-block-end: 4rem;
+}
+
+.quarto-title-banner {
+  height: 480px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quarto-title-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 1, 74, 0.35) 0%,
+    rgba(5, 1, 74, 0.55) 60%,
+    rgba(5, 1, 74, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.quarto-title-banner .quarto-title-banner-content {
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+#title-block-header .quarto-title-banner .title {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+}
+
+#title-block-header .quarto-title-banner .subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  margin-top: 1.25em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.01em;
+}
+
+/* =================================================== */
+/* Key Findings Callout                                  */
+/* =================================================== */
+
+.callout-note {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.5em 1.75em !important;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.callout-note:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.callout.callout-style-default .callout-body {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+.callout.callout-style-default .callout-header {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.key-finding {
+  margin-bottom: 1rem;
+}
+
+.key-finding .fas {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.fa-check-circle { color: #2ca25f; }
+.fa-times-circle { color: #de2d26; }
+.fa-minus-circle { color: #737373; }
+
+/* =================================================== */
+/* Tables (gt)                                           */
+/* =================================================== */
+
+div.gt_container {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--hairline);
+}
+
+.gt_table {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.gt_table tbody tr {
+  transition: background-color var(--transition);
+}
+
+.gt_table tbody tr:hover {
+  background-color: var(--surface-tint) !important;
+  cursor: default;
+}
+
+/* =================================================== */
+/* Custom Image Panel Styling                          */
+/* =================================================== */
+
+.image-panel {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 3rem auto;
+  max-width: 100%;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5eaea;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.image-panel figure {
+  margin: 0;
+  text-align: center;
+}
+
+/* Default: images scale to fit the panel without cropping */
+.image-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.image-panel:hover img {
+  transform: scale(1.015);
+}
+
+/* Quarto-sized images (e.g. width="50%"): let them fill the panel visually
+   instead of shrinking to their attribute width */
+.image-panel img[width],
+.image-panel img[style*="width"] {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.image-panel figcaption {
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  max-width: 700px;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .image-panel {
+    margin: 2rem auto;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .image-panel img,
+  .image-panel img[width] {
+    max-height: 380px;
+  }
+}
+
+
+/* =================================================== */
+/* Grid spacing tweaks                                   */
+/* =================================================== */
+
+.grid {
+  row-gap: 1.5rem;
+  column-gap: 1.75rem;
+}
+
+/* Lists inside content */
+ul li, ol li {
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+}
+
+/* =================================================== */
+/* Leaflet map polish                                    */
+/* =================================================== */
+
+.leaflet-container {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--hairline);
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+/* =================================================== */
+/* ggiraph / plot containers                             */
+/* =================================================== */
+
+.girafe_container_std {
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  background: var(--surface);
+  transition: box-shadow var(--transition);
+}
+
+.girafe_container_std:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+/* =================================================== */
+/* Selection                                             */
+/* =================================================== */
+
+::selection {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* =================================================== */
+/* Mobile / Responsive                                   */
+/* =================================================== */
+
+@media (max-width: 992px) {
+  body {
+    font-size: 1.02rem;
+  }
+
+  .quarto-title-banner {
+    height: 380px;
+  }
+
+  #title-block-header .quarto-title-banner .title {
+    font-size: 2.6rem;
+  }
+
+  #title-block-header .quarto-title-banner .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quarto-title-banner {
+    height: 320px;
+  }
+
+  #title-block-header .quarto-title-banner .title {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  #title-block-header .quarto-title-banner .subtitle {
+    font-size: 0.95rem;
+    margin-top: 0.75em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .image-panel {
+    padding: 0.85rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .callout-note {
+    padding: 1.1em 1.25em !important;
+  }
+
+  .callout.callout-style-default .callout-header {
+    font-size: 1.2rem;
+  }
+
+  hr {
+    margin: 3rem auto;
+    width: 85%;
+  }
+
+  /* Stack image panels in 2-col grids more comfortably */
+  .grid {
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  #title-block-header .quarto-title-banner .title {
+    font-size: 1.65rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+}
+
+

@@ -1,0 +1,11 @@
+---
+title: "quarto_schooldiversityupdate26"
+---
+
+This is a test
+{{< react reacttest >}}
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

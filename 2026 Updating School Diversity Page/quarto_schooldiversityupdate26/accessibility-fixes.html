@@ -1,0 +1,33 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    // --- 1. Fix Broken ARIA Menu ---
+    var menuElements = document.querySelectorAll('.navbar [role="menu"]');
+    menuElements.forEach(function(el) {
+      el.removeAttribute('role');
+    });
+
+    // --- 2. Add Aria Labels to VZ Links (Visual: "VZ", Audio: "Vision Zero") ---
+    
+    // Helper function to find link by partial URL and set label
+    function addLabel(partialUrl, labelText) {
+      // Find anchor tags that contain the specific URL
+      const links = document.querySelectorAll(`a[href*="${partialUrl}"]`);
+      links.forEach(link => {
+        link.setAttribute('aria-label', labelText);
+      });
+    }
+
+    // Apply labels to specific VZ links
+    addLabel("visionzero/pages/", "Official Vision Zero Page");
+    addLabel("visionzero/pages/open-data", "Vision Zero Data and Reports");
+    addLabel("vision-zero-safe-driving", "Department of Transportation Vision Zero Page");
+    addLabel("vzv.nyc", "Vision Zero Interactive Map");
+
+    // --- 3. Add Aria Labels to Icons (Twitter & Github) ---
+    // Note: We target these by the specific URL you used in the YML
+    addLabel("x.com/NYCCouncilData", "NYC Council Data X (Twitter) Profile");
+    addLabel("github.com/NewYorkCityCouncil", "New York City Council GitHub Profile");
+
+  });
+</script>
